@@ -1,0 +1,51 @@
+.heroSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5%;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.heroTitle {
+  font-size: 3.75rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.highlighted {
+  color: var(--primary-color);
+}
+
+.heroDescription {
+  max-width: 50rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1.125rem;
+  opacity: 0.8;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 3.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroDescription {
+    font-size: 1rem;
+  }
+  
+  .heroSection {
+    padding-top: 80px;
+  }
+}

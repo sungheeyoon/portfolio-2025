@@ -1,0 +1,281 @@
+/* 전체 섹션 스타일 */
+.skillsSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 5%;
+  background: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 배경 데코레이션 */
+.skillsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 20%, rgba(74, 107, 255, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* 컨테이너 */
+.skillsContainer {
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 애니메이션 효과를 위한 부분만 유지 */
+.animateIn {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+}
+
+/* 스킬 그리드 */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+}
+
+/* 카테고리 카드 */
+.categoryCard {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  opacity: 1; /* 기본은 보이도록 */
+  transform: translateY(0); /* 기본 위치 */
+  border: 1px solid var(--bg-color);
+}
+
+.categoryCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 카테고리 헤더 */
+.categoryHeader {
+  padding: 1.5rem;
+  border-radius: 16px 16px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0px, transparent 2px, transparent 4px),
+                    repeating-linear-gradient(-45deg, rgba(255,255,255,0.1) 0px, transparent 2px, transparent 4px);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.categoryTitle {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.5px;
+}
+
+/* 스킬 리스트 */
+.skillsList {
+  padding: 1.5rem;
+  background: var(--bg-color);
+  border-radius: 0 0 16px 16px;
+}
+
+.skillItem {
+  margin-bottom: 1.5rem;
+  opacity: 1; /* 기본은 보이도록 */
+  transform: translateX(0); /* 기본 위치 */
+}
+
+.skillItem:last-child {
+  margin-bottom: 0;
+}
+
+.skillContent {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--bg-color);
+}
+
+.skillItem:hover .skillContent {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateX(4px);
+}
+
+/* 스킬 헤더 */
+.skillHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skillInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.skillIcon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.skillItem:hover .skillIcon {
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skillTextContainer {
+  flex: 1;
+}
+
+.skillName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.25px;
+}
+
+.skillDescription {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 푸터 */
+.skillsFooter {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--bg-color);
+}
+
+.footerText {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+/* 애니메이션 클래스 */
+.animateIn {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 1024px) {
+  .skillsSection {
+    padding: 5rem 4%;
+  }
+  
+  .sectionTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skillsSection {
+    padding: 4rem 3%;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+  
+  .titleSubtext {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .skillIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .skillName {
+    font-size: 1rem;
+  }
+  
+  .skillDescription {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillsSection {
+    padding: 3rem 2%;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .titleSubtext {
+    letter-spacing: 2px;
+  }
+  
+  .categoryHeader {
+    padding: 1rem;
+  }
+  
+  .skillsList {
+    padding: 1rem;
+  }
+  
+  .skillItem {
+    margin-bottom: 1rem;
+  }
+  
+  .skillContent {
+    padding: 0.75rem;
+  }
+  
+  .skillHeader {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  
+  .skillLevel {
+    align-self: flex-end;
+  }
+}

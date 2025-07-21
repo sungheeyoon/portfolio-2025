@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>프로젝트 이미지 생성기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #4a6bff;
+    }
+    .section {
+      margin-bottom: 40px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .canvas-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .canvas-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .controls {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #eef2ff;
+      border-radius: 10px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    button {
+      background-color: #4a6bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #2a3c80;
+    }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 15px;
+      background-color: #4a6bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    a:hover {
+      background-color: #2a3c80;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>프로젝트 이미지 생성기</h1>
+    <p>프로젝트 포트폴리오에 사용할 스크린샷 이미지를 생성하세요.</p>
+
+    <div class="controls">
+      <div>
+        <label for="projectPrefix">프로젝트 접두사:</label>
+        <input type="text" id="projectPrefix" value="프로젝트">
+      </div>
+      <button onclick="generateAllImages()">모든 이미지 생성</button>
+    </div>
+
+    <div class="section">
+      <h2>모바일 앱 스크린샷</h2>
+      <div class="canvas-container">
+        <div class="canvas-wrapper">
+          <canvas id="mobileCanvas1" width="270" height="480"></canvas>
+          <a id="mobileDownload1" download="mobile_screen1.png">다운로드</a>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="mobileCanvas2" width="270" height="480"></canvas>
+          <a id="mobileDownload2" download="mobile_screen2.png">다운로드</a>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="mobileCanvas3" width="270" height="480"></canvas>
+          <a id="mobileDownload3" download="mobile_screen3.png">다운로드</a>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="mobileCanvas4" width="270" height="480"></canvas>
+          <a id="mobileDownload4" download="mobile_screen4.png">다운로드</a>
+        </div>
+      </div>
+      <button onclick="generateMobileImages()">모바일 이미지 생성</button>
+    </div>
+
+    <div class="section">
+      <h2>웹 프로젝트 스크린샷</h2>
+      <div class="canvas-container">
+        <div class="canvas-wrapper">
+          <canvas id="webCanvas1" width="640" height="360"></canvas>
+          <a id="webDownload1" download="web_screen1.png">다운로드</a>
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="webCanvas2" width="640" height="360"></canvas>
+          <a id="webDownload2" download="web_screen2.png">다운로드</a>
+        </div>
+      </div>
+      <button onclick="generateWebImages()">웹 이미지 생성</button>
+    </div>
+  </div>
+
+  <script>
+    function generateAllImages() {
+      generateMobileImages();
+      generateWebImages();
+    }
+
+    function generateMobileImages() {
+      const prefix = document.getElementById('projectPrefix').value;
+      
+      // 모바일 스크린샷 생성
+      generateMobileImage('mobileCanvas1', 'mobileDownload1', `${prefix} - 모바일 화면 1`, '#4a6bff', '#2a3c80');
+      generateMobileImage('mobileCanvas2', 'mobileDownload2', `${prefix} - 모바일 화면 2`, '#5656ff', '#383880');
+      generateMobileImage('mobileCanvas3', 'mobileDownload3', `${prefix} - 모바일 화면 3`, '#6246ff', '#3c2a80');
+      generateMobileImage('mobileCanvas4', 'mobileDownload4', `${prefix} - 모바일 화면 4`, '#7438ff', '#462880');
+    }
+
+    function generateWebImages() {
+      const prefix = document.getElementById('projectPrefix').value;
+      
+      // 웹 스크린샷 생성
+      generateWebImage('webCanvas1', 'webDownload1', `${prefix} - 웹 화면 1`, '#4a6bff', '#2a3c80');
+      generateWebImage('webCanvas2', 'webDownload2', `${prefix} - 웹 화면 2`, '#5656ff', '#383880');
+    }
+
+    function generateMobileImage(canvasId, downloadId, text, color1, color2) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      
+      // 배경 초기화
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // 상태 표시줄 그리기
+      ctx.fillStyle = '#333';
+      ctx.fillRect(0, 0, canvas.width, 24);
+      
+      // 앱 헤더 그리기
+      ctx.fillStyle = color1;
+      ctx.fillRect(0, 24, canvas.width, 56);
+      
+      // 앱 본문 배경
+      ctx.fillStyle = '#f5f5f5';
+      ctx.fillRect(0, 80, canvas.width, canvas.height - 80 - 60);
+      
+      // 모바일 하단 네비게이션 바
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, canvas.height - 60, canvas.width, 60);
+      
+      // 탭 아이콘 시뮬레이션
+      ctx.fillStyle = color2;
+      const tabWidth = canvas.width / 4;
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.arc(tabWidth * i + tabWidth / 2, canvas.height - 30, 10, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // 컨텐츠 모양 그리기
+      ctx.fillStyle = 'white';
+      // 상단 카드
+      ctx.fillRect(20, 90, canvas.width - 40, 100);
+      // 두 번째 카드
+      ctx.fillRect(20, 200, canvas.width - 40, 100);
+      // 세 번째 카드
+      ctx.fillRect(20, 310, canvas.width - 40, 60);
+      
+      // 텍스트
+      ctx.fillStyle = 'white';
+      ctx.font = 'bold 16px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('앱 타이틀', canvas.width / 2, 24 + 28);
+      
+      // 내부 텍스트
+      ctx.fillStyle = color1;
+      ctx.font = '16px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText(text, canvas.width / 2, 140);
+      
+      // 다운로드 링크 설정
+      const downloadLink = document.getElementById(downloadId);
+      downloadLink.href = canvas.toDataURL('image/png');
+    }
+
+    function generateWebImage(canvasId, downloadId, text, color1, color2) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+      
+      // 배경 초기화
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // 웹 헤더 그리기
+      ctx.fillStyle = color1;
+      ctx.fillRect(0, 0, canvas.width, 60);
+      
+      // 헤더 텍스트
+      ctx.fillStyle = 'white';
+      ctx.font = 'bold 18px Arial';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('웹사이트 로고', 20, 30);
+      
+      // 네비게이션 링크 시뮬레이션
+      ctx.textAlign = 'center';
+      const navItems = ['홈', '서비스', '프로젝트', '연락처'];
+      const navWidth = 400;
+      const itemWidth = navWidth / navItems.length;
+      
+      for (let i = 0; i < navItems.length; i++) {
+        ctx.fillText(navItems[i], canvas.width - 220 + (i * itemWidth), 30);
+      }
+      
+      // 사이드바 그리기
+      ctx.fillStyle = '#f5f5f5';
+      ctx.fillRect(0, 60, 200, canvas.height - 60);
+      
+      // 메인 컨텐츠 영역
+      ctx.fillStyle = color2;
+      ctx.globalAlpha = 0.1;
+      ctx.fillRect(200, 60, canvas.width - 200, canvas.height - 60);
+      ctx.globalAlpha = 1.0;
+      
+      // 그래프/차트 시뮬레이션
+      ctx.fillStyle = 'white';
+      ctx.fillRect(220, 80, canvas.width - 240, 100);
+      
+      // 테이블/데이터 시뮬레이션
+      ctx.fillRect(220, 200, canvas.width - 240, 140);
+      
+      // 메인 텍스트
+      ctx.fillStyle = color1;
+      ctx.font = 'bold 20px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText(text, canvas.width / 2 + 100, 30);
+      
+      // 추가 설명 텍스트
+      ctx.font = '16px Arial';
+      ctx.fillText('대시보드 샘플', canvas.width / 2 + 100, 130);
+      
+      // 사이드바 메뉴 아이템 시뮬레이션
+      ctx.fillStyle = '#333';
+      ctx.textAlign = 'left';
+      const menuItems = ['대시보드', '분석', '보고서', '설정'];
+      
+      for (let i = 0; i < menuItems.length; i++) {
+        ctx.fillText(menuItems[i], 20, 100 + (i * 40));
+      }
+      
+      // 다운로드 링크 설정
+      const downloadLink = document.getElementById(downloadId);
+      downloadLink.href = canvas.toDataURL('image/png');
+    }
+    
+    // 페이지 로드 시 이미지 생성
+    window.onload = generateAllImages;
+  </script>
+</body>
+</html>

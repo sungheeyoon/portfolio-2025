@@ -1,0 +1,431 @@
+.projectView {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0 60px; /* 바닥 패딩 증가 */
+  position: relative;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.projectContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.projectContent {
+  flex: 1;
+  max-width: 800px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: auto; /* 자동 높이 설정 */
+}
+
+.projectContent::-webkit-scrollbar {
+  display: none;
+}
+
+.projectContent {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.mockupContainer {
+  width: 40%;
+  max-width: 500px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  position: sticky;
+  top: 100px; /* 스크롤 시 상단에 고정 */
+}
+
+.mockupImage {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.mockupImage:hover {
+  transform: translateY(-8px);
+}
+
+/* 노트북에서 목업 컨테이너 크기 조정 */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .mockupContainer {
+    width: 35%; /* 약간 줄이기 */
+    max-width: 420px;
+    padding: 10px;
+  }
+  
+  .mockupImage {
+    max-width: 100%;
+  }
+}
+
+/* 다크 모드에서만 쉐도우 적용 */
+.dark-mode .mockupImage {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .mockupImage:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.projectTitle {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.projectTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+}
+
+.projectDescription {
+  max-width: 800px;
+}
+
+.descriptionLead {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.projectDescription p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.technologiesWrapper h3,
+.screenshotWrapper h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.techBadge {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.techBadge:hover {
+  transform: translateY(-3px);
+  background-color: var(--secondary-color);
+}
+
+.screenshotWrapper {
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* 모바일 앱 프로젝트(1, 2번)는 4개 스크린샷 그리드 */
+.mobileProjectScreenshots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 웹 프로젝트(3번)는 2개 스크린샷 그리드 */
+.webProjectScreenshots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.screenshotItem {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden; /* 이미지가 컨테이너를 벗어나지 않도록 */
+}
+
+.mobileProjectScreenshots .screenshotItem {
+  aspect-ratio: 9/19; /* 모바일 스크린샷 비율 조정 (가로:세로) */
+}
+
+.webProjectScreenshots .screenshotItem {
+  aspect-ratio: 16/9; /* 웹 스크린샷 비율 (가로:세로) */
+}
+
+/* 이미지 스타일 추가 */
+.screenshotImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 이미지가 온전히 보이도록 */
+  object-position: center; /* 중앙 정렬 */
+  background-color: white;
+  display: block;
+}
+
+/* 노트북 화면 크기에 대한 특별 처리 */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .projectContent {
+    gap: 15px; /* 간격 더 줄임 */
+  }
+  
+  .projectTitle {
+    font-size: 2.4rem; /* 제목 크기 줄임 */
+    margin-bottom: 5px;
+  }
+  
+  .projectTitle::after {
+    bottom: -8px; /* 선 위치 조정 */
+  }
+  
+  .projectDescription p {
+    margin-bottom: 10px; /* 문단 간격 줄임 */
+    line-height: 1.5;
+  }
+  
+  .descriptionLead {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .technologiesWrapper h3,
+  .screenshotWrapper h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .screenshotWrapper {
+    margin: 10px 0;
+  }
+  
+  /* 모바일 스크린샷 크기 최적화 */
+  .mobileProjectScreenshots {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  
+  .mobileProjectScreenshots .screenshotItem {
+    max-width: 125px; /* 노트북 화면에서 모바일 스크린샷 너비 */
+    max-height: 260px; /* 높이 제한 */
+    margin: 0 auto;
+  }
+  
+  /* 웹 스크린샷 크기 최적화 */
+  .webProjectScreenshots .screenshotItem {
+    max-width: 360px; /* 노트북 화면에서 웹 스크린샷 너비 */
+    max-height: 215px; /* 높이 제한 (16:9 비율 고려) */
+    margin: 0 auto;
+  }
+  
+  /* 링크 버튼 크기 최적화 */
+  .projectLinks {
+    margin-top: 10px;
+  }
+  
+  .projectLink {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+.dark-mode .screenshotItem {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: #333;
+}
+
+.screenshotItem:hover {
+  transform: translateY(-5px);
+}
+
+.placeholderImg {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--primary-color) 100%);
+  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.projectLink {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.projectLink:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+/* 큰 화면에서만 목업 표시 */
+@media (max-width: 1024px) {
+  .mockupContainer {
+    display: none; /* 작은 화면에서는 목업 숨김 */
+  }
+  
+  .projectContainer {
+    max-width: 800px; /* 작은 화면에서는 더 작은 너비 */
+  }
+  
+  .projectContent {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* 반응형 레이아웃 조정 - 텍스트 내용이 길 때 더 나은 가독성 제공 */
+@media (min-width: 1200px) {
+  .projectDescription {
+    font-size: 1.05rem;
+    max-width: 90%;
+  }
+
+  /* 스크린샷 너비 조정 */
+  .mobileProjectScreenshots .screenshotItem {
+    margin: 0 auto;
+  }
+
+  .webProjectScreenshots .screenshotItem {
+    margin: 0 auto;
+  }
+}
+
+/* 중간 화면 크기에 대한 조정 */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .mobileProjectScreenshots .screenshotItem {
+    max-width: 150px; /* 중간 화면 크기에서 모바일 스크린샷 너비 조정 */
+    margin: 0 auto;
+  }
+  
+  .webProjectScreenshots .screenshotItem {
+    max-width: 450px; /* 중간 화면 크기에서 웹 스크린샷 너비 조정 */
+    margin: 0 auto;
+  }
+}
+
+/* 화면 크기에 따른 반응형 설정 */
+@media (max-width: 992px) {
+  .mobileProjectScreenshots {
+    grid-template-columns: repeat(2, 1fr); /* 태블릿에서는 2열로 */
+    gap: 15px;
+  }
+  
+  .mobileProjectScreenshots .screenshotItem {
+    max-width: none; /* 최대 너비 제한 없음 */
+    width: 100%;
+  }
+  
+  .webProjectScreenshots .screenshotItem {
+    max-width: none; /* 최대 너비 제한 없음 */
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectTitle {
+    font-size: 2.2rem;
+  }
+
+  .projectDescription {
+    font-size: 0.95rem;
+  }
+
+  .descriptionLead {
+    font-size: 1.1rem;
+  }
+
+  .mobileProjectScreenshots,
+  .webProjectScreenshots {
+    grid-template-columns: repeat(2, 1fr); /* 모바일에서는 2열로 */
+    gap: 10px;
+  }
+
+  .projectLinks {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .projectLink {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileProjectScreenshots,
+  .webProjectScreenshots {
+    grid-template-columns: repeat(2, 1fr); /* 작은 모바일에서도 2열 유지 */
+    gap: 8px;
+  }
+  
+  .screenshotItem {
+    border-radius: 8px; /* 작은 화면에서는 라운딩 줄임 */
+  }
+  
+  .projectView {
+    padding: 60px 0 40px; /* 작은 화면에서 패딩 조정 */
+  }
+}
+
+/* 짝수 프로젝트에 대한 스타일 변형 */
+#project-2 {
+  background-color: rgba(74, 107, 255, 0.05);
+}
+
+/* 마지막 프로젝트 스타일 */
+#project-3 {
+  margin-bottom: 0;
+}
