@@ -11,7 +11,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { darkMode, toggleDarkMode } = useTheme();
   const { currentSection, setCurrentSection } = useSection();
-  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   // 섹션 목록
   const navLinks = [
@@ -132,7 +132,7 @@ export default function Header() {
         {navLinks.map((link, index) => (
           <button 
             key={link.id}
-            ref={el => navRefs.current[index] = el}
+            ref={el => { navRefs.current[index] = el; }}
             className={`${styles.navLink} ${
               (link.id === 'project-1' && isProjectSection()) || 
               (link.id === currentSection) 

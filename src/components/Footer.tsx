@@ -3,7 +3,6 @@
 import styles from './Footer.module.css';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
   
   const scrollToTop = () => {
     console.log('맨 위로 가기 버튼 클릭됨');

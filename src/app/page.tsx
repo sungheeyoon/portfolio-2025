@@ -136,7 +136,7 @@ export default function Home() {
   // 휠 이벤트 및 스크롤 종료 감지
   useEffect(() => {
     // 휠 이벤트 핸들러
-    const handleWheel = (e: WheelEvent) => {
+    const handleWheel = () => {
       // 휠 이벤트 발생 시 스크롤 진행 중으로 표시
       setIsScrolling(true);
       
@@ -220,7 +220,7 @@ export default function Home() {
   useEffect(() => {
     // 디바운스 함수 직접 구현
     let debounceTimer: ReturnType<typeof setTimeout>;
-    const createDebounceHandler = (fn: Function, delay: number) => {
+    const createDebounceHandler = (fn: () => void, delay: number) => {
       return function() {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {

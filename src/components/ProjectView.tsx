@@ -26,19 +26,6 @@ interface ProjectViewProps {
 export default function ProjectView({ project }: ProjectViewProps) {
   const [imageError, setImageError] = useState<Record<number, boolean>>({});
 
-  const scrollToNextProject = () => {
-    let nextElement;
-
-    if (project.id < 3) {
-      nextElement = document.getElementById(`project-${project.id + 1}`);
-    } else {
-      nextElement = document.getElementById('skills');
-    }
-
-    if (nextElement) {
-      nextElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   // 텍스트에 개행문자가 있으면 여러 문단으로 분할
   const renderDetails = () => {

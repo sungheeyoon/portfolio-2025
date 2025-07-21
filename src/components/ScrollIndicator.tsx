@@ -141,7 +141,7 @@ export default function ScrollIndicator({
         return (
           <div
             key={section.id}
-            ref={el => indicatorRefs.current[index] = el}
+            ref={el => { indicatorRefs.current[index] = el; }}
             className={`indicator-dot ${isActive ? 'active' : ''} ${styles.indicatorDot} ${isActive ? styles.active : ''}`}
             onClick={() => scrollToSection(section.id, index)}
             data-section-id={section.id}
