@@ -12,7 +12,7 @@ const projectsData: Project[] = [
     title: '식플 - 식물 관리 및 기록 서비스',
     description: 'Flutter와 Firebase를 활용한 식물 관리 모바일 애플리케이션',
     details: '사용자 인증부터 식물 등록, 스케줄 관리, 커뮤니티 기능까지 식물 관리에 특화된 모바일 앱입니다. Firebase로 실시간 데이터 연동 및 인증을 처리했으며, Flutter와 Riverpod 상태 관리로 구조적이고 반응성 높은 UI를 구현했습니다. 로컬 알림, 한글 자동완성 검색, 커뮤니티 기능, 페이지네이션 등 다양한 기능이 포함되어 있습니다.',
-    technologies: ['Flutter', 'Firebase', 'Riverpod', 'Cloud Firestore', 'Firebase Auth', 'Local Notifications'],
+    technologies: ['Flutter', 'Firebase', 'Riverpod', 'Firestore', 'Firebase Auth', 'Local Notifications'],
     screenshots: [
       '/img/sikple/list.png',
       '/img/sikple/check.png',
@@ -21,9 +21,9 @@ const projectsData: Project[] = [
     ],
     mockupImage: '/img/mockups/sikple_mockup.png',
     isMobileProject: true,
-    demoLink: '#',
-    githubLink: 'https://github.com/sungheeyoon/flutter_plant_plan',
-    notionLink: 'https://torushy.notion.site/Flutter-Firebase-100fd8f969ca8023892b0000'
+    demoLink: 'https://play.google.com/store/apps/details?id=com.torushy.plantPlan',
+    githubLink: 'https://github.com/sungheeyoon/flutter-plant-plan',
+    notionLink: 'https://cautious-jester-d10.notion.site/1d4bb16c585d80f1a314c64fe3bdcd7b'
   },
   {
     id: 2,
@@ -39,9 +39,10 @@ const projectsData: Project[] = [
     ],
     mockupImage: '/img/mockups/todays_mission_mockup.png',
     isMobileProject: true,
-    demoLink: 'https://play.google.com/store/apps/details?id=com.torushy.plantPlan',
-    githubLink: 'https://github.com/sungheeyoon/flutter_todo_plan',
-    notionLink: 'https://torushy.notion.site/Flutter-Hive-100fd8f969ca802b8f1c00000'
+    demoLink: '',
+    githubLink: 'https://github.com/sungheeyoon/todays-mission',
+    notionLink: 'https://cautious-jester-d10.notion.site/Today-s-Mission-Flutter-1d1bb16c585d80fd9c0edb0dddd0b11b',
+    hasDownload: false
   },
   {
     id: 3,

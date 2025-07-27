@@ -17,6 +17,7 @@ export interface Project {
   githubLink: string;
   notionLink?: string;
   isMobileProject?: boolean; // 모바일 프로젝트인지 여부
+  hasDownload?: boolean; // 다운로드/방문 버튼 표시 여부
 }
 
 interface ProjectViewProps {
@@ -99,9 +100,11 @@ export default function ProjectView({ project }: ProjectViewProps) {
           </div>
 
           <div className={styles.projectLinks}>
-            <Link href={project.demoLink} className={styles.projectLink} target="_blank" rel="noopener noreferrer">
-              {project.id === 2 ? '앱 다운로드' : '시연하기'}
-            </Link>
+            {project.hasDownload !== false && (
+              <Link href={project.demoLink} className={styles.projectLink} target="_blank" rel="noopener noreferrer">
+                {isMobileProject ? '앱 다운로드' : '사이트 방문하기'}
+              </Link>
+            )}
             <Link href={project.githubLink} className={styles.projectLink} target="_blank" rel="noopener noreferrer">
               GitHub
             </Link>
