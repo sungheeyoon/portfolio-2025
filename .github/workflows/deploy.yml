@@ -63,6 +63,7 @@ jobs:
           echo "Build completed, checking results..."
         env:
           NODE_ENV: production
+          NEXT_PUBLIC_NODE_ENV: production
           GITHUB_ACTIONS: true
       
       - name: List root directory after build
