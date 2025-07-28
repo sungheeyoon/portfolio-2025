@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ProjectView, { Project } from './ProjectView';
 import styles from './ProjectsSection.module.css';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { getImagePath } from '../utils/getImagePath';
 
 // 프로젝트 데이터
 const projectsData: Project[] = [
@@ -18,8 +19,8 @@ const projectsData: Project[] = [
       '/img/sikple/check.png',
       '/img/sikple/search.png',
       '/img/sikple/diary.png'
-    ],
-    mockupImage: '/img/mockups/sikple_mockup.png',
+    ].map(path => getImagePath(path)),
+    mockupImage: getImagePath('/img/mockups/sikple_mockup.png'),
     isMobileProject: true,
     demoLink: 'https://play.google.com/store/apps/details?id=com.torushy.plantPlan',
     githubLink: 'https://github.com/sungheeyoon/flutter-plant-plan',
@@ -36,8 +37,8 @@ const projectsData: Project[] = [
       '/img/todo/write.png',
       '/img/todo/statistics.png',
       '/img/todo/setting.png'
-    ],
-    mockupImage: '/img/mockups/todays_mission_mockup.png',
+    ].map(path => getImagePath(path)),
+    mockupImage: getImagePath('/img/mockups/todays_mission_mockup.png'),
     isMobileProject: true,
     demoLink: '',
     githubLink: 'https://github.com/sungheeyoon/todays-mission',
@@ -69,8 +70,8 @@ const projectsData: Project[] = [
     screenshots: [
       '/img/dongne_sokdak/detail.png',
       '/img/dongne_sokdak/report.png'
-    ],
-    mockupImage: '/img/dongne_sokdak/main.png',
+    ].map(path => getImagePath(path)),
+    mockupImage: getImagePath('/img/dongne_sokdak/main.png'),
     isMobileProject: false,
     demoLink: 'https://dongne-sokdak.vercel.app',
     githubLink: 'https://github.com/sungheeyoon/dongne-sokdak',
@@ -84,7 +85,7 @@ const simpleProjectsData = [
     id: 8,
     title: 'Airbnb Clone',
     description: 'Next.js 에어비앤비 클론',
-    image: '/img/simple/airbnb.png',
+    image: getImagePath('/img/simple/airbnb.png'),
     demoLink: 'https://airbnb-clone-ed9c-git-main-sungheeyoons-projects.vercel.app',
     githubLink: 'https://github.com/sungheeyoon/airbnb-clone'
   },
@@ -92,7 +93,7 @@ const simpleProjectsData = [
     id: 6,
     title: 'Cuptalk',
     description: '카카오톡 UI 클론',
-    image: '/img/simple/cuptalk.png',
+    image: getImagePath('/img/simple/cuptalk.png'),
     demoLink: 'https://sungheeyoon.github.io/Cuptalk-2021/',
     githubLink: 'https://github.com/sungheeyoon/Cuptalk-2021'
   },
@@ -100,7 +101,7 @@ const simpleProjectsData = [
     id: 5,
     title: 'Ywitter',
     description: 'React 트위터 클론',
-    image: '/img/simple/ywitter.png',
+    image: getImagePath('/img/simple/ywitter.png'),
     demoLink: 'https://sungheeyoon.github.io/ywitter/#/',
     githubLink: 'https://github.com/sungheeyoon/ywitter'
   },
@@ -108,7 +109,7 @@ const simpleProjectsData = [
     id: 4,
     title: 'Yoonflix',
     description: 'React 영화 정보 사이트',
-    image: '/img/simple/yoonflix.png',
+    image: getImagePath('/img/simple/yoonflix.png'),
     demoLink: 'https://sungheeyoon.github.io/yoonflix/#/',
     githubLink: 'https://github.com/sungheeyoon/yoonflix'
   }
