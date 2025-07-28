@@ -45,7 +45,10 @@ jobs:
         run: npm ci
       
       - name: Build with Next.js
-        run: npm run build
+        run: |
+          echo "Starting build process..."
+          npm run build
+          echo "Build completed, checking results..."
         env:
           NODE_ENV: production
       
@@ -67,6 +70,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+        if: success() && hashFiles('out/**') != ''
 
   deploy:
     environment:
