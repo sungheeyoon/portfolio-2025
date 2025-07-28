@@ -74,7 +74,7 @@ const projectsData: Project[] = [
     isMobileProject: false,
     demoLink: 'https://dongne-sokdak.vercel.app',
     githubLink: 'https://github.com/sungheeyoon/dongne-sokdak',
-    notionLink: 'https://torushy.notion.site/Next-js-15-FastAPI-Supabase-100fd8f969ca8031821500000'
+    notionLink: 'https://cautious-jester-d10.notion.site/23dbb16c585d80a68963ef07c9350a40'
   },
 ];
 
@@ -85,7 +85,7 @@ const simpleProjectsData = [
     title: 'Airbnb Clone',
     description: 'Next.js 에어비앤비 클론',
     image: '/img/simple/airbnb.png',
-    demoLink: 'https://airbnb-clone-chi-lime.vercel.app/',
+    demoLink: 'https://airbnb-clone-ed9c-git-main-sungheeyoons-projects.vercel.app',
     githubLink: 'https://github.com/sungheeyoon/airbnb-clone'
   },
   {
