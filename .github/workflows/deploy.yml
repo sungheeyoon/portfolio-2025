@@ -66,11 +66,21 @@ jobs:
             fi
           done
       
+      - name: Check if out directory exists
+        run: |
+          if [ -d "out" ]; then
+            echo "out directory exists, proceeding with upload"
+            ls -la out/
+          else
+            echo "ERROR: out directory does not exist!"
+            echo "Build may have failed or configuration issue"
+            exit 1
+          fi
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-        if: success() && hashFiles('out/**') != ''
 
   deploy:
     environment:
