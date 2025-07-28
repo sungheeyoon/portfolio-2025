@@ -56,10 +56,14 @@ jobs:
       - name: Build with Next.js
         run: |
           echo "Starting build process..."
+          echo "GITHUB_ACTIONS environment: $GITHUB_ACTIONS"
+          echo "NODE_ENV: $NODE_ENV"
+          cat next.config.ts
           npm run build
           echo "Build completed, checking results..."
         env:
           NODE_ENV: production
+          GITHUB_ACTIONS: true
       
       - name: List root directory after build
         run: |
@@ -80,6 +84,8 @@ jobs:
           if [ -d "out" ]; then
             echo "out directory exists, proceeding with upload"
             ls -la out/
+            echo "Checking basePath in HTML:"
+            head -20 out/index.html | grep -i "portfolio-2025\|/_next" || echo "No basePath found in HTML"
           else
             echo "ERROR: out directory does not exist!"
             echo "Build may have failed or configuration issue"
