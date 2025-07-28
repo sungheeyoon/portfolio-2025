@@ -18,8 +18,8 @@ const projectsData: Project[] = [
       '/img/sikple/check.png',
       '/img/sikple/search.png',
       '/img/sikple/diary.png'
-    ].map(path => (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? `/portfolio-2025${path}` : path),
-    mockupImage: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/mockups/sikple_mockup.png' : '/img/mockups/sikple_mockup.png',
+    ],
+    mockupImage: '/img/mockups/sikple_mockup.png',
     isMobileProject: true,
     demoLink: 'https://play.google.com/store/apps/details?id=com.torushy.plantPlan',
     githubLink: 'https://github.com/sungheeyoon/flutter-plant-plan',
@@ -36,8 +36,8 @@ const projectsData: Project[] = [
       '/img/todo/write.png',
       '/img/todo/statistics.png',
       '/img/todo/setting.png'
-    ].map(path => (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? `/portfolio-2025${path}` : path),
-    mockupImage: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/mockups/todays_mission_mockup.png' : '/img/mockups/todays_mission_mockup.png',
+    ],
+    mockupImage: '/img/mockups/todays_mission_mockup.png',
     isMobileProject: true,
     demoLink: '',
     githubLink: 'https://github.com/sungheeyoon/todays-mission',
@@ -69,8 +69,8 @@ const projectsData: Project[] = [
     screenshots: [
       '/img/dongne_sokdak/detail.png',
       '/img/dongne_sokdak/report.png'
-    ].map(path => (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? `/portfolio-2025${path}` : path),
-    mockupImage: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/dongne_sokdak/main.png' : '/img/dongne_sokdak/main.png',
+    ],
+    mockupImage: '/img/dongne_sokdak/main.png',
     isMobileProject: false,
     demoLink: 'https://dongne-sokdak.vercel.app',
     githubLink: 'https://github.com/sungheeyoon/dongne-sokdak',
@@ -84,7 +84,7 @@ const simpleProjectsData = [
     id: 8,
     title: 'Airbnb Clone',
     description: 'Next.js 에어비앤비 클론',
-    image: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/simple/airbnb.png' : '/img/simple/airbnb.png',
+    image: '/img/simple/airbnb.png',
     demoLink: 'https://airbnb-clone-ed9c-git-main-sungheeyoons-projects.vercel.app',
     githubLink: 'https://github.com/sungheeyoon/airbnb-clone'
   },
@@ -92,7 +92,7 @@ const simpleProjectsData = [
     id: 6,
     title: 'Cuptalk',
     description: '카카오톡 UI 클론',
-    image: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/simple/cuptalk.png' : '/img/simple/cuptalk.png',
+    image: '/img/simple/cuptalk.png',
     demoLink: 'https://sungheeyoon.github.io/Cuptalk-2021/',
     githubLink: 'https://github.com/sungheeyoon/Cuptalk-2021'
   },
@@ -100,7 +100,7 @@ const simpleProjectsData = [
     id: 5,
     title: 'Ywitter',
     description: 'React 트위터 클론',
-    image: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/simple/ywitter.png' : '/img/simple/ywitter.png',
+    image: '/img/simple/ywitter.png',
     demoLink: 'https://sungheeyoon.github.io/ywitter/#/',
     githubLink: 'https://github.com/sungheeyoon/ywitter'
   },
@@ -108,7 +108,7 @@ const simpleProjectsData = [
     id: 4,
     title: 'Yoonflix',
     description: 'React 영화 정보 사이트',
-    image: (process.env.NODE_ENV === 'production' || process.env.NEXT_PUBLIC_NODE_ENV === 'production') ? '/portfolio-2025/img/simple/yoonflix.png' : '/img/simple/yoonflix.png',
+    image: '/img/simple/yoonflix.png',
     demoLink: 'https://sungheeyoon.github.io/yoonflix/#/',
     githubLink: 'https://github.com/sungheeyoon/yoonflix'
   }
