@@ -56,12 +56,12 @@ jobs:
       - name: Build with Next.js
         run: |
           echo "Starting build process..."
-          echo "NODE_ENV before: $NODE_ENV"
-          export NODE_ENV=production
-          echo "NODE_ENV after: $NODE_ENV"
+          echo "NODE_ENV: $NODE_ENV"
           cat next.config.ts
-          npm run build:prod
+          npm run build
           echo "Build completed, checking results..."
+        env:
+          NODE_ENV: production
       
       - name: List root directory after build
         run: |
