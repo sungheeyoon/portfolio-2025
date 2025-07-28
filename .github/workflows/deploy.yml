@@ -49,6 +49,20 @@ jobs:
         env:
           NODE_ENV: production
       
+      - name: List root directory after build
+        run: |
+          echo "Root directory contents:"
+          ls -la
+          echo "Checking for common build output directories:"
+          for dir in out dist build .next; do
+            if [ -d "$dir" ]; then
+              echo "$dir directory exists:"
+              ls -la "$dir/"
+            else
+              echo "$dir directory does not exist"
+            fi
+          done
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
